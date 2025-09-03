@@ -125,9 +125,50 @@ export default {
 					'0%, 100%': { transform: 'translateY(0px)' },
 					'50%': { transform: 'translateY(-10px)' }
 				},
-				'glow': {
-					'0%, 100%': { boxShadow: '0 0 20px rgba(91, 156, 255, 0.3)' },
-					'50%': { boxShadow: '0 0 40px rgba(91, 156, 255, 0.6)' }
+				'glow-pulse': {
+					'0%, 100%': { 
+						boxShadow: '0 0 20px hsl(210 100% 56% / 0.4), 0 0 40px hsl(210 100% 56% / 0.2)',
+						transform: 'scale(1)'
+					},
+					'50%': { 
+						boxShadow: '0 0 40px hsl(210 100% 56% / 0.8), 0 0 80px hsl(210 100% 56% / 0.4)',
+						transform: 'scale(1.02)'
+					}
+				},
+				'cyber-grid': {
+					'0%': { transform: 'translateX(0) translateY(0)' },
+					'100%': { transform: 'translateX(-50px) translateY(-50px)' }
+				},
+				'particle-float': {
+					'0%': { 
+						transform: 'translateY(100vh) scale(0) rotate(0deg)',
+						opacity: '0'
+					},
+					'10%': { opacity: '1' },
+					'90%': { opacity: '1' },
+					'100%': { 
+						transform: 'translateY(-100vh) scale(1) rotate(360deg)',
+						opacity: '0'
+					}
+				},
+				'neon-flicker': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.8' },
+					'75%': { opacity: '1' }
+				},
+				'hologram': {
+					'0%, 100%': { 
+						transform: 'rotateY(0deg)',
+						filter: 'hue-rotate(0deg)'
+					},
+					'33%': { 
+						transform: 'rotateY(1deg)',
+						filter: 'hue-rotate(90deg)'
+					},
+					'66%': { 
+						transform: 'rotateY(-1deg)',
+						filter: 'hue-rotate(180deg)'
+					}
 				}
 			},
 			animation: {
@@ -139,7 +180,11 @@ export default {
 				'slide-in-right': 'slide-in-right 0.6s ease-out',
 				'gradient-shift': 'gradient-shift 8s ease-in-out infinite',
 				'float': 'float 6s ease-in-out infinite',
-				'glow': 'glow 2s ease-in-out infinite alternate'
+				'glow-pulse': 'glow-pulse 3s ease-in-out infinite',
+				'cyber-grid': 'cyber-grid 20s linear infinite',
+				'particle-float': 'particle-float 8s linear infinite',
+				'neon-flicker': 'neon-flicker 2s ease-in-out infinite',
+				'hologram': 'hologram 4s ease-in-out infinite'
 			}
 		}
 	},

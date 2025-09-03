@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, Code2, Sparkles } from 'lucide-react';
+import { ArrowDown, Code2, Sparkles, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import heroBg from '@/assets/hero-bg.jpg';
+import FuturisticBackground from '@/components/FuturisticBackground';
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -9,23 +9,17 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero noise">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src={heroBg} 
-          alt="Hero background" 
-          className="w-full h-full object-cover opacity-60"
-        />
-        <div className="absolute inset-0 bg-gradient-hero opacity-80" />
-      </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
+      {/* Futuristic Background */}
+      <FuturisticBackground />
 
-      {/* Floating Elements */}
+      {/* Enhanced Floating Elements */}
       <motion.div
-        className="absolute top-1/4 left-1/4 w-2 h-2 bg-accent rounded-full opacity-60"
+        className="absolute top-1/4 left-1/4 w-3 h-3 bg-accent rounded-full glow animate-neon-flicker"
         animate={{
-          y: [0, -20, 0],
-          opacity: [0.4, 0.8, 0.4]
+          y: [0, -30, 0],
+          opacity: [0.6, 1, 0.6],
+          scale: [1, 1.2, 1]
         }}
         transition={{
           duration: 4,
@@ -34,16 +28,33 @@ const Hero = () => {
         }}
       />
       <motion.div
-        className="absolute top-1/3 right-1/3 w-1 h-1 bg-primary rounded-full opacity-40"
+        className="absolute top-1/3 right-1/3 w-2 h-2 bg-primary rounded-full glow"
         animate={{
-          y: [0, -15, 0],
-          x: [0, 10, 0]
+          y: [0, -25, 0],
+          x: [0, 15, 0],
+          rotate: [0, 180, 360]
         }}
         transition={{
           duration: 6,
           repeat: Infinity,
           ease: "easeInOut",
           delay: 2
+        }}
+      />
+      
+      {/* Additional floating elements */}
+      <motion.div
+        className="absolute bottom-1/4 left-1/3 w-1 h-1 bg-accent rounded-full opacity-80"
+        animate={{
+          y: [0, -20, 0],
+          x: [0, -10, 0],
+          scale: [1, 1.5, 1]
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
         }}
       />
 
@@ -55,87 +66,140 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="space-y-8"
         >
-          {/* Badge */}
+          {/* Enhanced Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/20 text-sm text-muted-foreground"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass border border-accent/30 text-sm text-foreground glow animate-glow-pulse"
           >
-            <Sparkles className="w-4 h-4 text-accent" />
-            Portfolio Hub Profesional
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+            >
+              <Zap className="w-4 h-4 text-accent" />
+            </motion.div>
+            <span className="font-medium glow-text">Portfolio Futurista</span>
           </motion.div>
 
-          {/* Main Heading */}
+          {/* Enhanced Main Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-5xl md:text-7xl font-bold tracking-tight"
+            className="text-6xl md:text-8xl font-black tracking-tight"
           >
-            Desarrollo
             <motion.span
-              className="block bg-gradient-accent bg-clip-text text-transparent"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.8 }}
+              className="block text-foreground glow-text"
+              animate={{ textShadow: ["0 0 10px hsl(210 100% 56% / 0.8)", "0 0 20px hsl(210 100% 56% / 0.8)", "0 0 10px hsl(210 100% 56% / 0.8)"] }}
+              transition={{ duration: 2, repeat: Infinity }}
             >
-              Frontend
+              CYBER
             </motion.span>
-            <span className="text-muted-foreground text-4xl md:text-6xl">Profesional</span>
+            <motion.span
+              className="block bg-gradient-accent bg-clip-text text-transparent animate-gradient-shift"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.8 }}
+              style={{ backgroundSize: "200% 200%" }}
+            >
+              DEVELOPMENT
+            </motion.span>
+            <motion.span 
+              className="text-muted-foreground text-3xl md:text-5xl font-light tracking-widest"
+              animate={{ opacity: [0.7, 1, 0.7] }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
+              [PORTFOLIO.EXE]
+            </motion.span>
           </motion.h1>
 
-          {/* Subtitle */}
-          <motion.p
+          {/* Enhanced Subtitle */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+            className="max-w-3xl mx-auto space-y-4"
           >
-            Experiencias web modernas con tecnologías de vanguardia.
-            Interfaces que conectan diseño y funcionalidad.
-          </motion.p>
+            <p className="text-xl md:text-2xl text-accent font-medium">
+              {'>> '}Inicializando experiencias digitales avanzadas...
+            </p>
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+              Desarrollo frontend de próxima generación con arquitecturas reactivas,
+              interfaces neuromórficas y experiencias inmersivas.
+            </p>
+            <motion.div
+              className="flex items-center justify-center gap-2 text-sm text-accent font-mono"
+              animate={{ opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              <span>[STATUS]</span>
+              <span className="text-primary">●</span>
+              <span>ONLINE & OPTIMIZADO</span>
+            </motion.div>
+          </motion.div>
 
-          {/* CTA Buttons */}
+          {/* Enhanced CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
-            <Button
-              onClick={scrollToProjects}
-              className="group relative overflow-hidden bg-gradient-primary hover:bg-gradient-accent transition-all duration-smooth px-8 py-6 text-lg font-medium rounded-lg"
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <span className="relative z-10 flex items-center gap-2">
-                <Code2 className="w-5 h-5" />
-                Ver Proyectos
-              </span>
-              <motion.div
-                className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-smooth"
-                whileHover={{ scale: 1.05 }}
-              />
-            </Button>
-
-            <Button
-              variant="outline"
-              className="group glass border-white/20 hover:bg-white/10 px-8 py-6 text-lg font-medium rounded-lg transition-all duration-smooth"
-              asChild
-            >
-              <a href="#about" className="flex items-center gap-2">
-                Sobre mí
-                <motion.div
-                  animate={{ x: [0, 5, 0] }}
+              <Button
+                onClick={scrollToProjects}
+                className="group relative overflow-hidden bg-gradient-primary hover:bg-gradient-accent transition-all duration-smooth px-10 py-4 text-lg font-bold rounded-lg glow animate-glow-pulse border border-accent/50"
+              >
+                <motion.span 
+                  className="relative z-10 flex items-center gap-3"
+                  animate={{ 
+                    textShadow: ["0 0 5px hsl(210 100% 56% / 0.5)", "0 0 10px hsl(210 100% 56% / 0.8)", "0 0 5px hsl(210 100% 56% / 0.5)"] 
+                  }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
-                  →
-                </motion.div>
-              </a>
-            </Button>
+                  <Code2 className="w-6 h-6" />
+                  [EXPLORAR_PROYECTOS]
+                </motion.span>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-accent/20 to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-smooth"
+                  whileHover={{ 
+                    background: ["linear-gradient(45deg, hsl(189 100% 56% / 0.2), hsl(210 100% 56% / 0.2))", 
+                               "linear-gradient(45deg, hsl(210 100% 56% / 0.2), hsl(189 100% 56% / 0.2))"] 
+                  }}
+                  transition={{ duration: 1, repeat: Infinity }}
+                />
+              </Button>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button
+                variant="outline"
+                className="group glass border-accent/30 hover:border-accent/50 hover:bg-accent/10 px-10 py-4 text-lg font-bold rounded-lg transition-all duration-smooth"
+                asChild
+              >
+                <a href="#about" className="flex items-center gap-3">
+                  <span className="font-mono">[INFO_PERSONAL]</span>
+                  <motion.div
+                    animate={{ x: [0, 8, 0], opacity: [0.7, 1, 0.7] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="text-accent"
+                  >
+                    ▶
+                  </motion.div>
+                </a>
+              </Button>
+            </motion.div>
           </motion.div>
         </motion.div>
 
-        {/* Scroll Indicator */}
+        {/* Enhanced Scroll Indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -145,17 +209,31 @@ const Hero = () => {
         >
           <motion.div
             animate={{
-              y: [0, 10, 0]
+              y: [0, 15, 0]
             }}
             transition={{
-              duration: 2,
+              duration: 3,
               repeat: Infinity,
               ease: "easeInOut"
             }}
-            className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-smooth"
+            className="flex flex-col items-center gap-3 text-accent hover:text-primary transition-colors duration-smooth group"
           >
-            <span className="text-sm font-medium">Explorar</span>
-            <ArrowDown className="w-5 h-5" />
+            <motion.span 
+              className="text-sm font-mono font-bold tracking-wider"
+              animate={{ opacity: [0.7, 1, 0.7] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              [SCROLL_DOWN]
+            </motion.span>
+            <motion.div
+              className="relative"
+              animate={{ 
+                boxShadow: ["0 0 10px hsl(189 100% 56% / 0.5)", "0 0 20px hsl(189 100% 56% / 0.8)", "0 0 10px hsl(189 100% 56% / 0.5)"] 
+              }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              <ArrowDown className="w-6 h-6 group-hover:scale-110 transition-transform duration-smooth" />
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>

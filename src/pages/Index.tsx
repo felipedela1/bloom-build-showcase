@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import Hero from '@/components/Hero';
 import ProjectsGrid from '@/components/ProjectsGrid';
 import Footer from '@/components/Footer';
+import FuturisticBackground from '@/components/FuturisticBackground';
 
 const Index = () => {
 
@@ -65,17 +66,20 @@ const Index = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="min-h-screen bg-background"
+      className="min-h-screen bg-background relative overflow-hidden"
     >
+      {/* Futuristic Background - Global */}
+      <FuturisticBackground />
+      
       {/* Skip to main content link for accessibility */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 bg-accent text-accent-foreground px-4 py-2 rounded-md focus-visible"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 bg-accent text-accent-foreground px-4 py-2 rounded-md focus-visible glow"
       >
         Saltar al contenido principal
       </a>
 
-      <main id="main-content">
+      <main id="main-content" className="relative z-10">
         <Hero />
         <ProjectsGrid />
       </main>
