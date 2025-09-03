@@ -109,18 +109,18 @@ const ProjectCarousel: React.FC = () => {
             });
           }
         }}
-        className="w-full"
+        className="w-full bg-gradient-to-b from-slate-50 to-white/60 py-2 rounded-3xl"
       >
         <CarouselContent className="-ml-2 md:-ml-4 carousel-viewport">
           {projects.map((project, index) => (
             <CarouselItem key={project.id} className={`pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-2/5 carousel-item ${getItemClass(index)}`}>
               <div className="p-2">
-                <Card className="h-full group relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 backdrop-blur-sm border-2 border-white/50 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105">
+                <Card className="h-full group relative overflow-hidden bg-[#f7faff] backdrop-blur-sm border border-blue-100 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105">
                   {/* Simple gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-[-1]"></div>
                   
                   {/* Simple border effect */}
-                  <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-blue-300/50 transition-all duration-300 pointer-events-none z-[-1]"></div>
+                  <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-blue-300/60 transition-all duration-300 pointer-events-none z-[-1]"></div>
                   
                   <CardContent className="p-8 relative z-10 text-center">
                     {/* CTA Button - Moved to top */}
@@ -134,7 +134,7 @@ const ProjectCarousel: React.FC = () => {
                       </a>
                     </Button>
                                     {/* Image with enhanced styling */}
-                    <div className="aspect-video mb-6 overflow-hidden rounded-2xl shadow-xl group-hover:shadow-2xl transition-shadow duration-300 border-4 border-white/50">
+                    <div className="aspect-video mb-6 overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-3xl transition-shadow duration-300 border-4 border-white">
                       <img
                         src={project.image}
                         alt={project.name}
@@ -146,12 +146,12 @@ const ProjectCarousel: React.FC = () => {
                     </div>
                     <div className="space-y-6">
                       {/* Title with gradient */}
-                      <h3 className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-all duration-300 leading-tight">
+                      <h3 className="text-2xl font-extrabold text-slate-950 group-hover:text-blue-700 transition-all duration-300 leading-tight">
                         {project.name}
                       </h3>
                       
                       {/* Description */}
-                      <p className="text-gray-700 leading-relaxed text-base font-medium">
+                      <p className="text-slate-800 leading-relaxed text-base font-medium">
                         {project.detailedDescription}
                       </p>
                       
@@ -225,8 +225,8 @@ const ProjectCarousel: React.FC = () => {
         </CarouselContent>
         
         {/* Enhanced navigation buttons */}
-        <CarouselPrevious className="left-4 bg-white/90 hover:bg-white shadow-2xl border-2 border-blue-200/50 h-16 w-16 backdrop-blur-sm hover:shadow-3xl transition-all duration-300 rounded-full" />
-        <CarouselNext className="right-4 bg-white/90 hover:bg-white shadow-2xl border-2 border-blue-200/50 h-16 w-16 backdrop-blur-sm hover:shadow-3xl transition-all duration-300 rounded-full" />
+        <CarouselPrevious className="left-4 h-16 w-16 md:h-18 md:w-18 rounded-full bg-black text-white hover:bg-black/90 shadow-2xl border-2 border-black/80" />
+        <CarouselNext className="right-4 h-16 w-16 md:h-18 md:w-18 rounded-full bg-black text-white hover:bg-black/90 shadow-2xl border-2 border-black/80" />
       </Carousel>
       
       {/* Enhanced indicators */}
