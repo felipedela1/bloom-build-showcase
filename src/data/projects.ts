@@ -108,7 +108,7 @@ export const projects: Project[] = [
   },
   {
     id: 'lucero-care',
-    name: 'Lucero Care',
+    name: 'Cuidadora',
     description: 'Plataforma de salud digital con gestión de citas y expedientes médicos',
     detailedDescription: 'Plataforma integral de salud digital que digitaliza y optimiza los procesos médicos. Diseñada para clínicas y consultorios que buscan modernizar su gestión administrativa y clínica.',
     features: [
