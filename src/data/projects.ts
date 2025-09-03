@@ -121,7 +121,7 @@ export const projects: Project[] = [
       'Dashboard médico con métricas y estadísticas',
       'Cumplimiento con normativas de privacidad médica'
     ],
-    url: 'https://lucerocare.netlify.app/inicio',
+    url: 'https://cuidadora.netlify.app/inicio',
     image: '/lucerocare.png',
     technologies: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS', 'Chart.js'],
     category: 'healthcare',

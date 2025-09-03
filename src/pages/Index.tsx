@@ -40,7 +40,7 @@ const Index = () => {
         {
           "@type": "WebApplication", 
           "name": "Lucero Care",
-          "url": "https://lucerocare.netlify.app/inicio",
+          "url": "https://cuidadora.netlify.app/inicio",
           "description": "Plataforma de salud digital con gestión de citas, expedientes y control por roles"
         },
         {
