@@ -1,35 +1,10 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Hero from '@/components/Hero';
 import ProjectsGrid from '@/components/ProjectsGrid';
-import TechStack from '@/components/TechStack';
-import About from '@/components/About';
 import Footer from '@/components/Footer';
-import { useKeyboardShortcuts, createSearchShortcut, createEscapeShortcut } from '@/hooks/useKeyboardShortcuts';
 
 const Index = () => {
-  const searchInputRef = useRef<HTMLInputElement>(null);
-
-  // Keyboard shortcuts
-  useKeyboardShortcuts([
-    createSearchShortcut(() => {
-      // Focus search input in ProjectsGrid
-      const searchInput = document.querySelector('input[placeholder*="Buscar"]') as HTMLInputElement;
-      if (searchInput) {
-        searchInput.focus();
-        searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    }),
-    createEscapeShortcut(() => {
-      // Clear search or blur active element
-      const searchInput = document.querySelector('input[placeholder*="Buscar"]') as HTMLInputElement;
-      if (searchInput && searchInput === document.activeElement) {
-        searchInput.value = '';
-        searchInput.dispatchEvent(new Event('input', { bubbles: true }));
-        searchInput.blur();
-      }
-    })
-  ]);
 
   // SEO and performance optimizations
   useEffect(() => {
@@ -103,8 +78,6 @@ const Index = () => {
       <main id="main-content">
         <Hero />
         <ProjectsGrid />
-        <TechStack />
-        <About />
       </main>
       
       <Footer />
