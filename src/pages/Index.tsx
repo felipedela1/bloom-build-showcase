@@ -1,13 +1,114 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import Hero from '@/components/Hero';
+import ProjectsGrid from '@/components/ProjectsGrid';
+import TechStack from '@/components/TechStack';
+import About from '@/components/About';
+import Footer from '@/components/Footer';
+import { useKeyboardShortcuts, createSearchShortcut, createEscapeShortcut } from '@/hooks/useKeyboardShortcuts';
 
 const Index = () => {
+  const searchInputRef = useRef<HTMLInputElement>(null);
+
+  // Keyboard shortcuts
+  useKeyboardShortcuts([
+    createSearchShortcut(() => {
+      // Focus search input in ProjectsGrid
+      const searchInput = document.querySelector('input[placeholder*="Buscar"]') as HTMLInputElement;
+      if (searchInput) {
+        searchInput.focus();
+        searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }),
+    createEscapeShortcut(() => {
+      // Clear search or blur active element
+      const searchInput = document.querySelector('input[placeholder*="Buscar"]') as HTMLInputElement;
+      if (searchInput && searchInput === document.activeElement) {
+        searchInput.value = '';
+        searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+        searchInput.blur();
+      }
+    })
+  ]);
+
+  // SEO and performance optimizations
+  useEffect(() => {
+    // Update document title
+    document.title = 'Portfolio Hub - Desarrollo Frontend Profesional';
+    
+    // Update meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 
+        'Portfolio profesional de desarrollo frontend. Proyectos con React, TypeScript, Tailwind CSS y tecnologías modernas. Experiencias web de alto rendimiento.'
+      );
+    }
+
+    // Add structured data for SEO
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "Portfolio",
+      "name": "Portfolio Hub - Desarrollo Frontend",
+      "description": "Portfolio profesional de desarrollo frontend con React, TypeScript y tecnologías modernas",
+      "url": window.location.href,
+      "author": {
+        "@type": "Person",
+        "name": "Portfolio Developer",
+        "jobTitle": "Frontend Developer",
+        "knowsAbout": ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "UI/UX Design"]
+      },
+      "workExample": [
+        {
+          "@type": "WebApplication",
+          "name": "CRM Modular",
+          "url": "https://crmmodular.netlify.app/",
+          "description": "Sistema CRM completo con módulos personalizables"
+        },
+        {
+          "@type": "WebApplication", 
+          "name": "Lucero Care",
+          "url": "https://lucerocare.netlify.app/inicio",
+          "description": "Plataforma de salud digital"
+        }
+      ]
+    };
+
+    // Add structured data to head
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(structuredData);
+    document.head.appendChild(script);
+
+    // Cleanup
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      className="min-h-screen bg-background"
+    >
+      {/* Skip to main content link for accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 bg-accent text-accent-foreground px-4 py-2 rounded-md focus-visible"
+      >
+        Saltar al contenido principal
+      </a>
+
+      <main id="main-content">
+        <Hero />
+        <ProjectsGrid />
+        <TechStack />
+        <About />
+      </main>
+      
+      <Footer />
+    </motion.div>
   );
 };
 
