@@ -113,9 +113,9 @@ const ProjectCarousel: React.FC = () => {
       >
         <CarouselContent className="-ml-2 md:-ml-4 carousel-viewport">
           {projects.map((project, index) => (
-            <CarouselItem key={project.id} className={`pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-2/5 carousel-item ${getItemClass(index)}`}>
-              <div className="p-2">
-                <Card className="h-full group relative overflow-hidden bg-[#f7faff] backdrop-blur-sm border border-blue-100 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105">
+            <CarouselItem key={project.id} className={`pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-2/5 carousel-item ${getItemClass(index)} overflow-hidden`}>
+              <div className="p-2 mt-4 overflow-hidden">
+                <Card className="h-full group relative overflow-hidden bg-[#f7faff] backdrop-blur-sm border border-blue-100 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
                   {/* Simple gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-[-1]"></div>
                   
